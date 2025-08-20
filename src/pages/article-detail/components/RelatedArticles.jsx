@@ -1,14 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
+import React from "react";
+import { Link } from "react-router-dom";
+import Icon from "../../../components/AppIcon";
+import Image from "../../../components/AppImage";
 
 const RelatedArticles = ({ articles }) => {
   return (
-    <div className="bg-card border border-border rounded-lg p-6">
+    <div className="bg-card border border-border rounded-lg p-4">
       <div className="flex items-center space-x-2 mb-6">
         <Icon name="BookOpen" size={20} className="text-primary" />
-        <h3 className="text-lg font-semibold text-text-primary">Related Articles</h3>
+        <h3 className="text-lg font-semibold text-text-primary">
+          Related Articles
+        </h3>
       </div>
       <div className="space-y-4">
         {articles?.map((article, index) => (
@@ -27,7 +29,7 @@ const RelatedArticles = ({ articles }) => {
                   />
                 </div>
               </div>
-              
+
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors duration-200 line-clamp-2">
                   {article?.title}

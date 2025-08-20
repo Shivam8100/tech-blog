@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import Header from '../../components/ui/Header';
-import Icon from '../../components/AppIcon';
-import Button from '../../components/ui/Button';
-import ProjectCard from './components/ProjectCard';
-import ProjectFilter from './components/ProjectFilter';
-import ProjectStats from './components/ProjectStats';
-import FeaturedProject from './components/FeaturedProject';
-import ProjectModal from './components/ProjectModal';
-import ContributionActivity from './components/ContributionActivity';
+import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
+import Header from "../../components/ui/Header";
+import Icon from "../../components/AppIcon";
+import Button from "../../components/ui/Button";
+import ProjectCard from "./components/ProjectCard";
+import ProjectFilter from "./components/ProjectFilter";
+import ProjectStats from "./components/ProjectStats";
+import FeaturedProject from "./components/FeaturedProject";
+import ProjectModal from "./components/ProjectModal";
+import ContributionActivity from "./components/ContributionActivity";
 
 const ProjectShowcase = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [activeStatus, setActiveStatus] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('recent');
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeStatus, setActiveStatus] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("recent");
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState([]);
@@ -24,17 +24,27 @@ const ProjectShowcase = () => {
     {
       id: 1,
       title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, inventory management, and real-time order tracking.",
+      description:
+        "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, inventory management, and real-time order tracking.",
       fullDescription: `A comprehensive e-commerce platform built from the ground up to demonstrate modern web development practices. This project showcases full-stack development skills, from responsive frontend design to scalable backend architecture.\n\nThe platform includes advanced features like real-time inventory updates, secure payment processing with Stripe integration, and an admin dashboard for managing products and orders. The frontend is built with React and styled with Tailwind CSS for a modern, responsive design.`,
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
       category: "web",
       status: "Active",
-      technologies: ["React", "Node.js", "PostgreSQL", "Express", "Stripe", "JWT", "Tailwind CSS"],
+      technologies: [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Express",
+        "Stripe",
+        "JWT",
+        "Tailwind CSS",
+      ],
       stats: {
         stars: 245,
         forks: 67,
         downloads: 1200,
-        commits: 156
+        commits: 156,
       },
       lastUpdated: "2 days ago",
       featured: true,
@@ -44,43 +54,56 @@ const ProjectShowcase = () => {
         "Secure payment processing with Stripe",
         "Admin dashboard for inventory management",
         "Real-time order tracking",
-        "Responsive design for all devices"
+        "Responsive design for all devices",
       ],
       problemSolution: {
-        problem: "Small businesses need affordable, feature-rich e-commerce solutions that can compete with major platforms while maintaining customization flexibility.",
-        solution: "Built a modular, open-source platform that provides enterprise-level features while remaining lightweight and easily customizable for different business needs."
+        problem:
+          "Small businesses need affordable, feature-rich e-commerce solutions that can compete with major platforms while maintaining customization flexibility.",
+        solution:
+          "Built a modular, open-source platform that provides enterprise-level features while remaining lightweight and easily customizable for different business needs.",
       },
       architecture: [
         "RESTful API design with Express.js",
         "JWT-based authentication system",
         "PostgreSQL database with optimized queries",
         "Redis caching for improved performance",
-        "Microservices architecture for scalability"
+        "Microservices architecture for scalability",
       ],
       challenges: [
         {
           title: "Payment Security",
-          description: "Implementing secure payment processing while maintaining PCI compliance and user experience."
+          description:
+            "Implementing secure payment processing while maintaining PCI compliance and user experience.",
         },
         {
           title: "Real-time Updates",
-          description: "Synchronizing inventory levels across multiple user sessions without performance degradation."
-        }
-      ]
+          description:
+            "Synchronizing inventory levels across multiple user sessions without performance degradation.",
+        },
+      ],
     },
     {
       id: 2,
       title: "Task Management API",
-      description: "RESTful API for task management with user authentication, team collaboration, and real-time notifications. Built with Node.js, MongoDB, and Socket.io.",
-      image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?w=800&h=600&fit=crop",
+      description:
+        "RESTful API for task management with user authentication, team collaboration, and real-time notifications. Built with Node.js, MongoDB, and Socket.io.",
+      image:
+        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?w=800&h=600&fit=crop",
       category: "api",
       status: "Completed",
-      technologies: ["Node.js", "MongoDB", "Socket.io", "Express", "JWT", "Swagger"],
+      technologies: [
+        "Node.js",
+        "MongoDB",
+        "Socket.io",
+        "Express",
+        "JWT",
+        "Swagger",
+      ],
       stats: {
         stars: 189,
         forks: 43,
         downloads: 890,
-        commits: 98
+        commits: 98,
       },
       lastUpdated: "1 week ago",
       featured: false,
@@ -88,22 +111,30 @@ const ProjectShowcase = () => {
         "RESTful API endpoints",
         "Real-time notifications",
         "Team collaboration features",
-        "Task prioritization and categorization"
-      ]
+        "Task prioritization and categorization",
+      ],
     },
     {
       id: 3,
       title: "React Native Fitness App",
-      description: "Cross-platform mobile app for fitness tracking with workout plans, progress monitoring, and social features. Includes integration with health APIs.",
-      image: "https://images.pixabay.com/photo/2017/08/07/14/02/people-2604149_1280.jpg?w=800&h=600&fit=crop",
+      description:
+        "Cross-platform mobile app for fitness tracking with workout plans, progress monitoring, and social features. Includes integration with health APIs.",
+      image:
+        "https://images.pixabay.com/photo/2017/08/07/14/02/people-2604149_1280.jpg?w=800&h=600&fit=crop",
       category: "mobile",
       status: "Active",
-      technologies: ["React Native", "Firebase", "Redux", "Expo", "Health APIs"],
+      technologies: [
+        "React Native",
+        "Firebase",
+        "Redux",
+        "Expo",
+        "Health APIs",
+      ],
       stats: {
         stars: 312,
         forks: 89,
         downloads: 2100,
-        commits: 203
+        commits: 203,
       },
       lastUpdated: "3 days ago",
       featured: false,
@@ -111,14 +142,16 @@ const ProjectShowcase = () => {
         "Workout tracking and planning",
         "Progress visualization",
         "Social sharing features",
-        "Health API integration"
-      ]
+        "Health API integration",
+      ],
     },
     {
       id: 4,
       title: "AI Code Assistant",
-      description: "VS Code extension that provides intelligent code suggestions and documentation generation using OpenAI's API. Supports multiple programming languages.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
+      description:
+        "VS Code extension that provides intelligent code suggestions and documentation generation using OpenAI's API. Supports multiple programming languages.",
+      image:
+        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
       category: "tools",
       status: "Active",
       technologies: ["TypeScript", "VS Code API", "OpenAI API", "Node.js"],
@@ -126,7 +159,7 @@ const ProjectShowcase = () => {
         stars: 567,
         forks: 124,
         downloads: 5600,
-        commits: 87
+        commits: 87,
       },
       lastUpdated: "1 day ago",
       featured: false,
@@ -134,14 +167,16 @@ const ProjectShowcase = () => {
         "Intelligent code completion",
         "Automatic documentation generation",
         "Multi-language support",
-        "Context-aware suggestions"
-      ]
+        "Context-aware suggestions",
+      ],
     },
     {
       id: 5,
       title: "Blockchain Voting System",
-      description: "Decentralized voting platform built on Ethereum with smart contracts. Ensures transparency, security, and immutability of voting records.",
-      image: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?w=800&h=600&fit=crop",
+      description:
+        "Decentralized voting platform built on Ethereum with smart contracts. Ensures transparency, security, and immutability of voting records.",
+      image:
+        "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?w=800&h=600&fit=crop",
       category: "blockchain",
       status: "Completed",
       technologies: ["Solidity", "Web3.js", "React", "Ethereum", "MetaMask"],
@@ -149,7 +184,7 @@ const ProjectShowcase = () => {
         stars: 423,
         forks: 156,
         downloads: 780,
-        commits: 134
+        commits: 134,
       },
       lastUpdated: "2 weeks ago",
       featured: false,
@@ -157,14 +192,16 @@ const ProjectShowcase = () => {
         "Smart contract-based voting",
         "Transparent vote counting",
         "Voter authentication",
-        "Immutable voting records"
-      ]
+        "Immutable voting records",
+      ],
     },
     {
       id: 6,
       title: "Machine Learning Dashboard",
-      description: "Interactive dashboard for visualizing ML model performance with real-time data processing and model comparison tools. Built with Python and Streamlit.",
-      image: "https://images.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg?w=800&h=600&fit=crop",
+      description:
+        "Interactive dashboard for visualizing ML model performance with real-time data processing and model comparison tools. Built with Python and Streamlit.",
+      image:
+        "https://images.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg?w=800&h=600&fit=crop",
       category: "ai",
       status: "Active",
       technologies: ["Python", "Streamlit", "Pandas", "Scikit-learn", "Plotly"],
@@ -172,7 +209,7 @@ const ProjectShowcase = () => {
         stars: 298,
         forks: 72,
         downloads: 1450,
-        commits: 165
+        commits: 165,
       },
       lastUpdated: "4 days ago",
       featured: false,
@@ -180,9 +217,9 @@ const ProjectShowcase = () => {
         "Real-time model monitoring",
         "Interactive data visualization",
         "Model comparison tools",
-        "Performance metrics tracking"
-      ]
-    }
+        "Performance metrics tracking",
+      ],
+    },
   ];
 
   // Mock stats data
@@ -192,71 +229,80 @@ const ProjectShowcase = () => {
     totalStars: 2847,
     totalForks: 892,
     totalContributors: 45,
-    totalDownloads: 15600
+    totalDownloads: 15600,
   };
 
   // Mock activity data
   const activities = [
     {
-      type: 'commit',
-      action: 'Pushed 3 commits',
-      repository: 'e-commerce-platform',
-      description: 'Added payment validation and improved error handling',
+      type: "commit",
+      action: "Pushed 3 commits",
+      repository: "e-commerce-platform",
+      description: "Added payment validation and improved error handling",
       timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
-      stats: { additions: 127, deletions: 43, files: 8 }
+      stats: { additions: 127, deletions: 43, files: 8 },
     },
     {
-      type: 'pr',
-      action: 'Merged pull request',
-      repository: 'ai-code-assistant',
-      description: 'Feature: Add support for Python type hints',
-      timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000)
+      type: "pr",
+      action: "Merged pull request",
+      repository: "ai-code-assistant",
+      description: "Feature: Add support for Python type hints",
+      timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000),
     },
     {
-      type: 'release',
-      action: 'Published release v2.1.0',
-      repository: 'task-management-api',
-      description: 'Added team collaboration features and performance improvements',
-      timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000)
+      type: "release",
+      action: "Published release v2.1.0",
+      repository: "task-management-api",
+      description:
+        "Added team collaboration features and performance improvements",
+      timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000),
     },
     {
-      type: 'issue',
-      action: 'Opened issue',
-      repository: 'fitness-app',
-      description: 'Bug: Health API integration not working on iOS',
-      timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
+      type: "issue",
+      action: "Opened issue",
+      repository: "fitness-app",
+      description: "Bug: Health API integration not working on iOS",
+      timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
     },
     {
-      type: 'star',
-      action: 'Received 5 new stars',
-      repository: 'blockchain-voting',
-      timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)
-    }
+      type: "star",
+      action: "Received 5 new stars",
+      repository: "blockchain-voting",
+      timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
+    },
   ];
 
   // Filter and sort projects
   useEffect(() => {
-    let filtered = projects?.filter(project => {
-      const matchesCategory = activeCategory === 'all' || project?.category === activeCategory;
-      const matchesStatus = activeStatus === 'all' || project?.status?.toLowerCase() === activeStatus;
-      const matchesSearch = searchQuery === '' || 
+    let filtered = projects?.filter((project) => {
+      const matchesCategory =
+        activeCategory === "all" || project?.category === activeCategory;
+      const matchesStatus =
+        activeStatus === "all" ||
+        project?.status?.toLowerCase() === activeStatus;
+      const matchesSearch =
+        searchQuery === "" ||
         project?.title?.toLowerCase()?.includes(searchQuery?.toLowerCase()) ||
-        project?.description?.toLowerCase()?.includes(searchQuery?.toLowerCase()) ||
-        project?.technologies?.some(tech => tech?.toLowerCase()?.includes(searchQuery?.toLowerCase()));
-      
+        project?.description
+          ?.toLowerCase()
+          ?.includes(searchQuery?.toLowerCase()) ||
+        project?.technologies?.some((tech) =>
+          tech?.toLowerCase()?.includes(searchQuery?.toLowerCase())
+        );
+
       return matchesCategory && matchesStatus && matchesSearch;
     });
 
     // Sort projects
     filtered?.sort((a, b) => {
       switch (sortBy) {
-        case 'popular':
+        case "popular":
           return b?.stats?.stars - a?.stats?.stars;
-        case 'stars':
+        case "stars":
           return b?.stats?.stars - a?.stats?.stars;
-        case 'name':
+        case "name":
           return a?.title?.localeCompare(b?.title);
-        case 'recent':
+        case "recent":
         default:
           return new Date(b.lastUpdated) - new Date(a.lastUpdated);
       }
@@ -265,7 +311,7 @@ const ProjectShowcase = () => {
     setFilteredProjects(filtered);
   }, [activeCategory, activeStatus, searchQuery, sortBy]);
 
-  const featuredProject = projects?.find(p => p?.featured);
+  const featuredProject = projects?.find((p) => p?.featured);
 
   const handleViewDetails = (project) => {
     setSelectedProject(project);
@@ -273,11 +319,19 @@ const ProjectShowcase = () => {
   };
 
   const handleViewDemo = (project) => {
-    window.open(`https://demo.${project?.title?.toLowerCase()?.replace(/\s+/g, '-')}.com`, '_blank');
+    window.open(
+      `https://demo.${project?.title?.toLowerCase()?.replace(/\s+/g, "-")}.com`,
+      "_blank"
+    );
   };
 
   const handleViewCode = (project) => {
-    window.open(`https://github.com/username/${project?.title?.toLowerCase()?.replace(/\s+/g, '-')}`, '_blank');
+    window.open(
+      `https://github.com/Shivam8100/${project?.title
+        ?.toLowerCase()
+        ?.replace(/\s+/g, "-")}`,
+      "_blank"
+    );
   };
 
   const handleCloseModal = () => {
@@ -289,7 +343,10 @@ const ProjectShowcase = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>Project Showcase - TechBlog Hub</title>
-        <meta name="description" content="Explore my open-source projects, technical experiments, and development journey. See real-world applications of the concepts I write about." />
+        <meta
+          name="description"
+          content="Explore my open-source projects, technical experiments, and development journey. See real-world applications of the concepts I write about."
+        />
       </Helmet>
       <Header />
       <main className="pt-16">
@@ -301,16 +358,19 @@ const ProjectShowcase = () => {
                 Project Showcase
               </h1>
               <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-                Explore my open-source contributions, side projects, and technical experiments. 
-                Each project demonstrates practical application of the concepts I write about, 
-                from initial idea to production deployment.
+                Explore my open-source contributions, side projects, and
+                technical experiments. Each project demonstrates practical
+                application of the concepts I write about, from initial idea to
+                production deployment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Button
                   variant="default"
                   iconName="Github"
                   iconPosition="left"
-                  onClick={() => window.open('https://github.com/username', '_blank')}
+                  onClick={() =>
+                    window.open("https://github.com/Shivam8100", "_blank")
+                  }
                 >
                   View GitHub Profile
                 </Button>
@@ -318,6 +378,13 @@ const ProjectShowcase = () => {
                   variant="outline"
                   iconName="Download"
                   iconPosition="left"
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/file/d/1hdY278asB31azGPgsbJq7G4xrXrufzta/view",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
                 >
                   Download Resume
                 </Button>
@@ -371,17 +438,24 @@ const ProjectShowcase = () => {
               {/* No Results */}
               {filteredProjects?.length === 0 && (
                 <div className="text-center py-12">
-                  <Icon name="Search" size={48} className="text-text-secondary mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-text-primary mb-2">No projects found</h3>
+                  <Icon
+                    name="Search"
+                    size={48}
+                    className="text-text-secondary mx-auto mb-4"
+                  />
+                  <h3 className="text-lg font-semibold text-text-primary mb-2">
+                    No projects found
+                  </h3>
                   <p className="text-text-secondary">
-                    Try adjusting your filters or search query to find what you're looking for.
+                    Try adjusting your filters or search query to find what
+                    you're looking for.
                   </p>
                   <Button
                     variant="outline"
                     onClick={() => {
-                      setActiveCategory('all');
-                      setActiveStatus('all');
-                      setSearchQuery('');
+                      setActiveCategory("all");
+                      setActiveStatus("all");
+                      setSearchQuery("");
                     }}
                     className="mt-4"
                   >
@@ -399,17 +473,25 @@ const ProjectShowcase = () => {
               {/* Quick Links */}
               <div className="bg-card border border-border rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center space-x-2">
-                  <Icon name="ExternalLink" size={20} className="text-primary" />
+                  <Icon
+                    name="ExternalLink"
+                    size={20}
+                    className="text-primary"
+                  />
                   <span>Quick Links</span>
                 </h3>
                 <div className="space-y-3">
                   <a
-                    href="https://github.com/username"
+                    href="https://github.com/Shivam8100"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center space-x-3 p-3 hover:bg-hover rounded-lg transition-colors duration-200"
                   >
-                    <Icon name="Github" size={20} className="text-text-secondary" />
+                    <Icon
+                      name="Github"
+                      size={20}
+                      className="text-text-secondary"
+                    />
                     <span className="text-text-primary">GitHub Profile</span>
                   </a>
                   <a
@@ -418,14 +500,22 @@ const ProjectShowcase = () => {
                     rel="noopener noreferrer"
                     className="flex items-center space-x-3 p-3 hover:bg-hover rounded-lg transition-colors duration-200"
                   >
-                    <Icon name="Linkedin" size={20} className="text-text-secondary" />
+                    <Icon
+                      name="Linkedin"
+                      size={20}
+                      className="text-text-secondary"
+                    />
                     <span className="text-text-primary">LinkedIn</span>
                   </a>
                   <a
                     href="mailto:contact@example.com"
                     className="flex items-center space-x-3 p-3 hover:bg-hover rounded-lg transition-colors duration-200"
                   >
-                    <Icon name="Mail" size={20} className="text-text-secondary" />
+                    <Icon
+                      name="Mail"
+                      size={20}
+                      className="text-text-secondary"
+                    />
                     <span className="text-text-primary">Contact Me</span>
                   </a>
                 </div>
@@ -437,7 +527,8 @@ const ProjectShowcase = () => {
                   Stay Updated
                 </h3>
                 <p className="text-text-secondary text-sm mb-4">
-                  Get notified when I publish new projects or major updates to existing ones.
+                  Get notified when I publish new projects or major updates to
+                  existing ones.
                 </p>
                 <div className="space-y-3">
                   <input
@@ -471,7 +562,9 @@ const ProjectShowcase = () => {
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                 <Icon name="Code2" size={20} color="white" strokeWidth={2.5} />
               </div>
-              <span className="text-lg font-bold text-text-primary">TechBlog Hub</span>
+              <span className="text-lg font-bold text-text-primary">
+                TechBlog Hub
+              </span>
             </div>
             <p className="text-text-secondary mb-4">
               Building the future, one project at a time.

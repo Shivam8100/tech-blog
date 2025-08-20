@@ -1,28 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import Header from '../../components/ui/Header';
-import ArticleHeader from './components/ArticleHeader';
-import TableOfContents from './components/TableOfContents';
-import CodeBlock from './components/CodeBlock';
-import InteractiveDemo from './components/InteractiveDemo';
-import RelatedArticles from './components/RelatedArticles';
-import CommentSection from './components/CommentSection';
-import AuthorBio from './components/AuthorBio';
-import NewsletterSignup from './components/NewsletterSignup';
-import ReadingProgress from './components/ReadingProgress';
-import Icon from '../../components/AppIcon';
-import Button from '../../components/ui/Button';
+import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
+import Header from "../../components/ui/Header";
+import ArticleHeader from "./components/ArticleHeader";
+import TableOfContents from "./components/TableOfContents";
+import CodeBlock from "./components/CodeBlock";
+import InteractiveDemo from "./components/InteractiveDemo";
+import RelatedArticles from "./components/RelatedArticles";
+import CommentSection from "./components/CommentSection";
+import AuthorBio from "./components/AuthorBio";
+import NewsletterSignup from "./components/NewsletterSignup";
+import ReadingProgress from "./components/ReadingProgress";
+import Icon from "../../components/AppIcon";
+import Button from "../../components/ui/Button";
 
 const ArticleDetail = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [activeHeading, setActiveHeading] = useState('');
+  const [activeHeading, setActiveHeading] = useState("");
   const [comments, setComments] = useState([]);
 
   // Mock article data
   const article = {
     id: 1,
-    title: "Building Scalable React Applications with Modern Architecture Patterns",
-    subtitle: "A comprehensive guide to implementing clean architecture, state management, and performance optimization in large-scale React applications.",
+    title:
+      "Building Scalable React Applications with Modern Architecture Patterns",
+    subtitle:
+      "A comprehensive guide to implementing clean architecture, state management, and performance optimization in large-scale React applications.",
     category: "React",
     difficulty: "Advanced",
     tags: ["React", "Architecture", "Performance", "State Management"],
@@ -30,20 +32,23 @@ const ArticleDetail = () => {
     readTime: 12,
     views: 15420,
     author: {
-      name: "Alex Chen",
-      title: "Senior Frontend Engineer at TechCorp",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      name: "Shivam Ranjan",
+      title: "Frontend Engineer at Truemeds",
+      avatar: "https://github.com/Shivam8100.png",
       verified: true,
       bio: "Passionate frontend developer with 8+ years of experience building scalable web applications. I love sharing knowledge about React, TypeScript, and modern web development practices.",
       articlesCount: 47,
       followers: 8500,
       location: "San Francisco, CA",
       socialLinks: [
-        { platform: "Twitter", url: "https://twitter.com/alexchen" },
-        { platform: "Github", url: "https://github.com/alexchen" },
-        { platform: "Linkedin", url: "https://linkedin.com/in/alexchen" }
-      ]
-    }
+        { platform: "Twitter", url: "https://x.com/shivamr8100" },
+        { platform: "Github", url: "https://github.com/Shivam8100" },
+        {
+          platform: "Linkedin",
+          url: "https://www.linkedin.com/in/shivam-ranjan-b57a28150/",
+        },
+      ],
+    },
   };
 
   // Mock table of contents
@@ -55,38 +60,46 @@ const ArticleDetail = () => {
     { id: "state-management", text: "State Management", level: 1 },
     { id: "redux-toolkit", text: "Redux Toolkit Setup", level: 2 },
     { id: "context-api", text: "Context API Usage", level: 2 },
-    { id: "performance-optimization", text: "Performance Optimization", level: 1 },
+    {
+      id: "performance-optimization",
+      text: "Performance Optimization",
+      level: 1,
+    },
     { id: "code-splitting", text: "Code Splitting", level: 2 },
     { id: "memoization", text: "Memoization Strategies", level: 2 },
-    { id: "conclusion", text: "Conclusion", level: 1 }
+    { id: "conclusion", text: "Conclusion", level: 1 },
   ];
 
   // Mock related articles
   const relatedArticles = [
     {
       title: "Advanced TypeScript Patterns for React Developers",
-      thumbnail: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
       readTime: 8,
-      category: "TypeScript"
+      category: "TypeScript",
     },
     {
       title: "Optimizing React Performance with Profiler and DevTools",
-      thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
       readTime: 10,
-      category: "Performance"
+      category: "Performance",
     },
     {
       title: "Testing Strategies for Modern React Applications",
-      thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
       readTime: 15,
-      category: "Testing"
+      category: "Testing",
     },
     {
       title: "Building Design Systems with React and Storybook",
-      thumbnail: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop",
       readTime: 12,
-      category: "Design Systems"
-    }
+      category: "Design Systems",
+    },
   ];
 
   // Mock comments data
@@ -95,26 +108,29 @@ const ArticleDetail = () => {
       id: 1,
       author: "Sarah Johnson",
       avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-      content: "Excellent article! The architecture patterns you\'ve outlined here are exactly what we\'ve been implementing at our company. The folder structure approach has really helped us scale our team.",
+      content:
+        "Excellent article! The architecture patterns you've outlined here are exactly what we've been implementing at our company. The folder structure approach has really helped us scale our team.",
       timestamp: new Date(Date.now() - 3600000),
       replies: [
         {
           id: 2,
           author: "Mike Rodriguez",
           avatar: "https://randomuser.me/api/portraits/men/22.jpg",
-          content: "I agree! We've seen similar benefits. How do you handle shared components across different feature modules?",
-          timestamp: new Date(Date.now() - 1800000)
-        }
-      ]
+          content:
+            "I agree! We've seen similar benefits. How do you handle shared components across different feature modules?",
+          timestamp: new Date(Date.now() - 1800000),
+        },
+      ],
     },
     {
       id: 3,
       author: "David Kim",
       avatar: "https://randomuser.me/api/portraits/men/15.jpg",
-      content: "The Redux Toolkit section was particularly helpful. I've been hesitant to migrate from plain Redux, but your examples make it look much more manageable.",
+      content:
+        "The Redux Toolkit section was particularly helpful. I've been hesitant to migrate from plain Redux, but your examples make it look much more manageable.",
       timestamp: new Date(Date.now() - 7200000),
-      replies: []
-    }
+      replies: [],
+    },
   ];
 
   useEffect(() => {
@@ -123,8 +139,8 @@ const ArticleDetail = () => {
 
   useEffect(() => {
     const observerOptions = {
-      rootMargin: '-20% 0px -35% 0px',
-      threshold: 0
+      rootMargin: "-20% 0px -35% 0px",
+      threshold: 0,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -156,7 +172,7 @@ const ArticleDetail = () => {
       <Helmet>
         <title>{article?.title} - TechBlog Hub</title>
         <meta name="description" content={article?.subtitle} />
-        <meta name="keywords" content={article?.tags?.join(', ')} />
+        <meta name="keywords" content={article?.tags?.join(", ")} />
         <meta property="og:title" content={article?.title} />
         <meta property="og:description" content={article?.subtitle} />
         <meta property="og:type" content="article" />
@@ -164,7 +180,7 @@ const ArticleDetail = () => {
       <ReadingProgress />
       <Header />
       <div className="min-h-screen bg-background pt-16">
-        <ArticleHeader 
+        <ArticleHeader
           article={article}
           onBookmark={handleBookmark}
           isBookmarked={isBookmarked}
@@ -179,27 +195,44 @@ const ArticleDetail = () => {
               {/* Introduction */}
               <section id="introduction" className="prose prose-lg max-w-none">
                 <p className="text-lg text-text-primary leading-relaxed">
-                  Building scalable React applications requires more than just knowing the framework—it demands a deep understanding of architectural patterns, performance optimization techniques, and maintainable code structures. In this comprehensive guide, we'll explore proven strategies for creating React applications that can grow with your team and user base.
+                  Building scalable React applications requires more than just
+                  knowing the framework—it demands a deep understanding of
+                  architectural patterns, performance optimization techniques,
+                  and maintainable code structures. In this comprehensive guide,
+                  we'll explore proven strategies for creating React
+                  applications that can grow with your team and user base.
                 </p>
-                
+
                 <p className="text-text-primary leading-relaxed">
-                  Whether you're working on a small startup project or a large enterprise application, the principles and patterns covered in this article will help you build more maintainable, performant, and scalable React applications.
+                  Whether you're working on a small startup project or a large
+                  enterprise application, the principles and patterns covered in
+                  this article will help you build more maintainable,
+                  performant, and scalable React applications.
                 </p>
               </section>
 
               {/* Architecture Overview */}
               <section id="architecture-overview" className="space-y-6">
-                <h2 className="text-3xl font-bold text-text-primary">Architecture Overview</h2>
-                
+                <h2 className="text-3xl font-bold text-text-primary">
+                  Architecture Overview
+                </h2>
+
                 <p className="text-text-primary leading-relaxed">
-                  A well-architected React application follows the principles of separation of concerns, single responsibility, and dependency inversion. Let's explore the key architectural patterns that make this possible.
+                  A well-architected React application follows the principles of
+                  separation of concerns, single responsibility, and dependency
+                  inversion. Let's explore the key architectural patterns that
+                  make this possible.
                 </p>
 
                 <div id="folder-structure" className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-text-primary">Folder Structure</h3>
-                  
+                  <h3 className="text-2xl font-semibold text-text-primary">
+                    Folder Structure
+                  </h3>
+
                   <p className="text-text-primary leading-relaxed">
-                    A consistent folder structure is the foundation of any scalable application. Here's the structure we recommend for large React applications:
+                    A consistent folder structure is the foundation of any
+                    scalable application. Here's the structure we recommend for
+                    large React applications:
                   </p>
 
                   <CodeBlock
@@ -226,10 +259,14 @@ const ArticleDetail = () => {
                 </div>
 
                 <div id="component-patterns" className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-text-primary">Component Patterns</h3>
-                  
+                  <h3 className="text-2xl font-semibold text-text-primary">
+                    Component Patterns
+                  </h3>
+
                   <p className="text-text-primary leading-relaxed">
-                    Implementing consistent component patterns helps maintain code quality and makes it easier for team members to understand and contribute to the codebase.
+                    Implementing consistent component patterns helps maintain
+                    code quality and makes it easier for team members to
+                    understand and contribute to the codebase.
                   </p>
 
                   <CodeBlock
@@ -309,17 +346,24 @@ const InteractiveExample = () => {
 
               {/* State Management */}
               <section id="state-management" className="space-y-6">
-                <h2 className="text-3xl font-bold text-text-primary">State Management</h2>
-                
+                <h2 className="text-3xl font-bold text-text-primary">
+                  State Management
+                </h2>
+
                 <p className="text-text-primary leading-relaxed">
-                  Effective state management is crucial for scalable React applications. We'll explore both Redux Toolkit and Context API approaches, and when to use each.
+                  Effective state management is crucial for scalable React
+                  applications. We'll explore both Redux Toolkit and Context API
+                  approaches, and when to use each.
                 </p>
 
                 <div id="redux-toolkit" className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-text-primary">Redux Toolkit Setup</h3>
-                  
+                  <h3 className="text-2xl font-semibold text-text-primary">
+                    Redux Toolkit Setup
+                  </h3>
+
                   <p className="text-text-primary leading-relaxed">
-                    Redux Toolkit simplifies Redux usage and eliminates much of the boilerplate code. Here's how to set it up effectively:
+                    Redux Toolkit simplifies Redux usage and eliminates much of
+                    the boilerplate code. Here's how to set it up effectively:
                   </p>
 
                   <CodeBlock
@@ -349,10 +393,13 @@ export type AppDispatch = typeof store.dispatch;`}
                 </div>
 
                 <div id="context-api" className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-text-primary">Context API Usage</h3>
-                  
+                  <h3 className="text-2xl font-semibold text-text-primary">
+                    Context API Usage
+                  </h3>
+
                   <p className="text-text-primary leading-relaxed">
-                    For simpler state management needs, the Context API provides a lightweight solution:
+                    For simpler state management needs, the Context API provides
+                    a lightweight solution:
                   </p>
 
                   <CodeBlock
@@ -397,17 +444,24 @@ export const useTheme = () => {
 
               {/* Performance Optimization */}
               <section id="performance-optimization" className="space-y-6">
-                <h2 className="text-3xl font-bold text-text-primary">Performance Optimization</h2>
-                
+                <h2 className="text-3xl font-bold text-text-primary">
+                  Performance Optimization
+                </h2>
+
                 <p className="text-text-primary leading-relaxed">
-                  Performance optimization is critical for user experience and application scalability. Let's explore key techniques for optimizing React applications.
+                  Performance optimization is critical for user experience and
+                  application scalability. Let's explore key techniques for
+                  optimizing React applications.
                 </p>
 
                 <div id="code-splitting" className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-text-primary">Code Splitting</h3>
-                  
+                  <h3 className="text-2xl font-semibold text-text-primary">
+                    Code Splitting
+                  </h3>
+
                   <p className="text-text-primary leading-relaxed">
-                    Code splitting allows you to split your code into smaller chunks, which can be loaded on demand:
+                    Code splitting allows you to split your code into smaller
+                    chunks, which can be loaded on demand:
                   </p>
 
                   <CodeBlock
@@ -443,10 +497,13 @@ function App() {
                 </div>
 
                 <div id="memoization" className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-text-primary">Memoization Strategies</h3>
-                  
+                  <h3 className="text-2xl font-semibold text-text-primary">
+                    Memoization Strategies
+                  </h3>
+
                   <p className="text-text-primary leading-relaxed">
-                    Proper use of React.memo, useMemo, and useCallback can significantly improve performance:
+                    Proper use of React.memo, useMemo, and useCallback can
+                    significantly improve performance:
                   </p>
 
                   <CodeBlock
@@ -494,27 +551,59 @@ const UserCard = memo(({ user, onClick }) => (
 
               {/* Conclusion */}
               <section id="conclusion" className="space-y-4">
-                <h2 className="text-3xl font-bold text-text-primary">Conclusion</h2>
-                
+                <h2 className="text-3xl font-bold text-text-primary">
+                  Conclusion
+                </h2>
+
                 <p className="text-text-primary leading-relaxed">
-                  Building scalable React applications requires careful consideration of architecture, state management, and performance optimization. The patterns and techniques covered in this article provide a solid foundation for creating maintainable and performant applications that can grow with your needs.
+                  Building scalable React applications requires careful
+                  consideration of architecture, state management, and
+                  performance optimization. The patterns and techniques covered
+                  in this article provide a solid foundation for creating
+                  maintainable and performant applications that can grow with
+                  your needs.
                 </p>
-                
+
                 <p className="text-text-primary leading-relaxed">
-                  Remember that scalability isn't just about handling more users—it's also about making your codebase maintainable for larger development teams and more complex feature requirements. By following these architectural patterns and best practices, you'll be well-equipped to build React applications that stand the test of time.
+                  Remember that scalability isn't just about handling more
+                  users—it's also about making your codebase maintainable for
+                  larger development teams and more complex feature
+                  requirements. By following these architectural patterns and
+                  best practices, you'll be well-equipped to build React
+                  applications that stand the test of time.
                 </p>
 
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 mt-8">
                   <div className="flex items-start space-x-3">
-                    <Icon name="Lightbulb" size={24} className="text-primary flex-shrink-0 mt-1" />
+                    <Icon
+                      name="Lightbulb"
+                      size={24}
+                      className="text-primary flex-shrink-0 mt-1"
+                    />
                     <div>
-                      <h4 className="font-semibold text-text-primary mb-2">Key Takeaways</h4>
+                      <h4 className="font-semibold text-text-primary mb-2">
+                        Key Takeaways
+                      </h4>
                       <ul className="space-y-2 text-sm text-text-primary">
-                        <li>• Implement a consistent folder structure based on features</li>
-                        <li>• Use appropriate state management solutions for your use case</li>
-                        <li>• Optimize performance with code splitting and memoization</li>
-                        <li>• Follow component patterns for maintainable code</li>
-                        <li>• Plan for scalability from the beginning of your project</li>
+                        <li>
+                          • Implement a consistent folder structure based on
+                          features
+                        </li>
+                        <li>
+                          • Use appropriate state management solutions for your
+                          use case
+                        </li>
+                        <li>
+                          • Optimize performance with code splitting and
+                          memoization
+                        </li>
+                        <li>
+                          • Follow component patterns for maintainable code
+                        </li>
+                        <li>
+                          • Plan for scalability from the beginning of your
+                          project
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -525,13 +614,16 @@ const UserCard = memo(({ user, onClick }) => (
               <AuthorBio author={article?.author} />
 
               {/* Comments */}
-              <CommentSection comments={comments} onAddComment={handleAddComment} />
+              <CommentSection
+                comments={comments}
+                onAddComment={handleAddComment}
+              />
             </article>
 
             {/* Sidebar */}
             <aside className="lg:col-span-1 space-y-6">
               <RelatedArticles articles={relatedArticles} />
-              
+
               <div className="sticky top-24">
                 <NewsletterSignup />
               </div>

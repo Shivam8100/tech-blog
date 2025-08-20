@@ -1,60 +1,43 @@
-import React, { useState } from 'react';
-import Icon from '../../../components/AppIcon';
+import React, { useState } from "react";
+import Icon from "../../../components/AppIcon";
 
 const TechJourneyTimeline = () => {
-  const [activeYear, setActiveYear] = useState(2024);
+  const [activeYear, setActiveYear] = useState(2019);
 
   const journeyData = [
     {
-      year: 2016,
+      year: 2019,
       title: "The Beginning",
-      role: "Junior Developer",
-      company: "StartupTech Inc.",
-      description: "Started my journey with JavaScript and React. Built my first production application and discovered my passion for clean, maintainable code.",
+      role: "Freelence",
+      company: "Self",
+      description:
+        "Created Applications with  junior developers while architecting scalable solutions. Started writing technical articles to share knowledge.",
+      technologies: ["TypeScript", "Nodejs", "GraphQL", "Angular"],
+      achievement: "Worked with 12 developers, published 50+ articles",
+      icon: "Users",
+    },
+    {
+      year: 2021,
+      title: "Software developer",
+      role: "Frontend Developer",
+      company: "Antino Labs private limited.",
+      description:
+        "Started my journey with JavaScript and React. Built my first production application and discovered my passion for clean, maintainable code.",
       technologies: ["JavaScript", "React", "Node.js", "MongoDB"],
       achievement: "Shipped first major feature used by 10k+ users",
-      icon: "Rocket"
+      icon: "Rocket",
     },
     {
-      year: 2018,
-      title: "Full-Stack Evolution",
+      year: 2023,
+      title: "Software developer",
       role: "Software Engineer",
-      company: "TechCorp Solutions",
-      description: "Expanded into backend development and cloud technologies. Led migration of legacy systems to modern architecture.",
-      technologies: ["Python", "AWS", "Docker", "PostgreSQL"],
+      company: "Truemeds",
+      description:
+        "Expanded into Frontend development and cloud technologies. Led migration of legacy systems to modern architecture.",
+      technologies: ["React", "AWS", "Docker", "Strapi"],
       achievement: "Reduced system downtime by 85%",
-      icon: "Server"
+      icon: "Server",
     },
-    {
-      year: 2020,
-      title: "Leadership & Scale",
-      role: "Senior Software Engineer",
-      company: "InnovateLabs",
-      description: "Mentored junior developers while architecting scalable solutions. Started writing technical articles to share knowledge.",
-      technologies: ["TypeScript", "Kubernetes", "GraphQL", "Redis"],
-      achievement: "Mentored 12 developers, published 50+ articles",
-      icon: "Users"
-    },
-    {
-      year: 2022,
-      title: "Thought Leadership",
-      role: "Tech Lead",
-      company: "FutureTech Systems",
-      description: "Leading cross-functional teams and driving technical strategy. Speaking at conferences and building open-source projects.",
-      technologies: ["Next.js", "Microservices", "AI/ML", "Blockchain"],
-      achievement: "Spoke at 8 conferences, 100k+ article views",
-      icon: "Trophy"
-    },
-    {
-      year: 2024,
-      title: "Innovation & Impact",
-      role: "Principal Engineer",
-      company: "TechBlog Hub",
-      description: "Focusing on emerging technologies and knowledge sharing. Building platforms that empower developers worldwide.",
-      technologies: ["AI Integration", "Web3", "Edge Computing", "Quantum"],
-      achievement: "Launched TechBlog Hub, 25k+ community members",
-      icon: "Sparkles"
-    }
   ];
 
   return (
@@ -65,7 +48,8 @@ const TechJourneyTimeline = () => {
             My Tech Journey
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            A timeline of continuous learning, growth, and contribution to the tech community
+            A timeline of continuous learning, growth, and contribution to the
+            tech community
           </p>
         </div>
 
@@ -77,8 +61,8 @@ const TechJourneyTimeline = () => {
               onClick={() => setActiveYear(item?.year)}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeYear === item?.year
-                  ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'bg-card text-text-secondary hover:text-text-primary hover:bg-hover'
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "bg-card text-text-secondary hover:text-text-primary hover:bg-hover"
               }`}
             >
               {item?.year}
@@ -93,8 +77,8 @@ const TechJourneyTimeline = () => {
               key={item?.year}
               className={`transition-all duration-500 ${
                 activeYear === item?.year
-                  ? 'opacity-100 transform translate-y-0'
-                  : 'opacity-0 transform translate-y-8 absolute'
+                  ? "opacity-100 transform translate-y-0"
+                  : "opacity-0 transform translate-y-8 absolute"
               }`}
             >
               {activeYear === item?.year && (
@@ -104,7 +88,12 @@ const TechJourneyTimeline = () => {
                     <div className="lg:col-span-2 space-y-6">
                       <div className="flex items-start space-x-4">
                         <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                          <Icon name={item?.icon} size={24} color="white" strokeWidth={2} />
+                          <Icon
+                            name={item?.icon}
+                            size={24}
+                            color="white"
+                            strokeWidth={2}
+                          />
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-text-primary mb-2">
@@ -125,8 +114,14 @@ const TechJourneyTimeline = () => {
 
                       <div className="bg-success/10 border border-success/20 rounded-lg p-4">
                         <div className="flex items-center space-x-2 mb-2">
-                          <Icon name="Award" size={20} className="text-success" />
-                          <span className="font-semibold text-success">Key Achievement</span>
+                          <Icon
+                            name="Award"
+                            size={20}
+                            className="text-success"
+                          />
+                          <span className="font-semibold text-success">
+                            Key Achievement
+                          </span>
                         </div>
                         <p className="text-text-primary">{item?.achievement}</p>
                       </div>
