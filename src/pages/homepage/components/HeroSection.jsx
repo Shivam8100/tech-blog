@@ -1,28 +1,30 @@
-import React, { useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
-import Button from '../../../components/ui/Button';
+import React, { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
+import Icon from "../../../components/AppIcon";
+import Image from "../../../components/AppImage";
+import Button from "../../../components/ui/Button";
 
 const HeroSection = () => {
   const featuredArticle = {
     id: 1,
     title: "Building Scalable React Applications with Advanced Patterns",
-    excerpt: "Explore advanced React patterns including compound components, render props, and custom hooks to build maintainable and scalable applications. Learn how to structure your codebase for long-term success.",
+    excerpt:
+      "Explore advanced React patterns including compound components, render props, and custom hooks to build maintainable and scalable applications. Learn how to structure your codebase for long-term success.",
     readTime: "12 min read",
     publishedDate: "2025-08-18",
     category: "React",
     difficulty: "Advanced",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
     author: {
-      name: "Alex Chen",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+      name: "Shivam Ranjan",
+      avatar: "https://github.com/Shivam8100.png",
     },
     stats: {
       views: "2.4k",
       comments: 18,
-      likes: 156
-    }
+      likes: 156,
+    },
   };
 
   const codeSnippet = `// Advanced React Pattern Example
@@ -89,7 +91,9 @@ const Modal = ({ children }) => {
                 for Developers
               </h1>
               <p className="text-lg text-text-secondary leading-relaxed max-w-lg">
-                Discover in-depth technical articles, interactive code examples, and curated learning paths that bridge complex concepts with practical insights.
+                Discover in-depth technical articles, interactive code examples,
+                and curated learning paths that bridge complex concepts with
+                practical insights.
               </p>
             </div>
 
@@ -105,7 +109,9 @@ const Modal = ({ children }) => {
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-text-primary">12</div>
-                <div className="text-sm text-text-secondary">Learning Paths</div>
+                <div className="text-sm text-text-secondary">
+                  Learning Paths
+                </div>
               </div>
             </div>
 
